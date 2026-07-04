@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "83005993152",
+    "project_id": "nutrimind-c2952",
+    "storage_bucket": "nutrimind-c2952.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83005993152:android:3a13b0fb9726bdb7d7fd25",
+        "android_client_info": {
+          "package_name": "com.example.nutrimind"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYI0DkNi9u_P6bxiLeZvtWTgjn_qWXP50"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

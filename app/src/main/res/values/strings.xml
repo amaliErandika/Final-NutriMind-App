@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NutriMind</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_title">we\'re starting now, here we go on this journey!</string>
+    <string name="txt_subtitle">Your journey toward a brighter, healthier, and more joyful life begins today.</string>
+    <string name="btn_start">Explore NutriMind</string>
+</resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/bg2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/titleHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NutriMind"
+            android:textColor="@color/teal_200"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/lora_bold_italic"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete Diary Entry"
+            android:fontFamily="@font/lora_semibold_italic"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginBottom="20dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerDeleteEntry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_fd"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/btnDeleteDiary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete Entry"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/btnBackToViewDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back to View Entries"
+            android:backgroundTint="@color/teal_200"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
+</ScrollView>

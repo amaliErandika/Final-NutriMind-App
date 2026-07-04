@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Inactive stars (White) -->
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="#FFFFFF"/> <!-- White color -->
+        </shape>
+    </item>
+
+    <!-- Half-filled stars (Light Gold) -->
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape>
+                <solid android:color="#FFD700"/> <!-- Light Gold -->
+            </shape>
+        </clip>
+    </item>
+
+    <!-- Fully filled stars (Gold) -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <solid android:color="#FFA500"/> <!-- Orange-Gold -->
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>

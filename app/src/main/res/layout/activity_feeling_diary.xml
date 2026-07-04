@@ -1,0 +1,126 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/titleHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lora_bold_italic"
+            android:text="NutriMind"
+            android:textColor="@color/teal_200"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How do you feel today?"
+            android:fontFamily="@font/lora_semibold_italic"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/tvMoodResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/tvSuggestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+
+
+        <EditText
+            android:id="@+id/etFeelingEntry"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:hint="Write your feelings here..."
+            android:background="@drawable/rounded_fd"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="20dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/white"/>
+
+        <Button
+            android:id="@+id/btnSaveEntry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Entry"
+            android:backgroundTint="@color/teal_200"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Buttons for CRUD operations -->
+        <Button
+            android:id="@+id/btnViewPastDiary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Past Diaries"
+            android:backgroundTint="@color/teal_200"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/btnUpdateDiary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Diary"
+            android:backgroundTint="@color/teal_200"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"/>
+
+
+        <Button
+            android:id="@+id/btnDeleteDiary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete Diary"
+            android:backgroundTint="@color/teal_200"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/btnBackToHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back To Home Page"
+            android:backgroundTint="@color/teal_200"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:layout_marginBottom="20dp"/>
+
+    </LinearLayout>
+</ScrollView>

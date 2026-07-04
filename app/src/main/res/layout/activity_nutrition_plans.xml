@@ -1,0 +1,115 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/titleHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NutriMind"
+        android:fontFamily="@font/lora_bold_italic"
+        android:textColor="#033D71"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"/>
+
+    <!-- LinearLayout to stack buttons vertically -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleHome"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:spacing="18dp"> <!-- Adjust the spacing between buttons -->
+
+        <TextView
+            android:id="@+id/titleNutritionPlans"
+            android:layout_width="361dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/lora_semibold_italic"
+            android:text="Select Your Nutrition Plan For The Day!"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+
+        <!-- Monday Button -->
+        <Button
+            android:id="@+id/btnMonday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="Monday"
+            app:iconTint="#3A3030" />
+
+        <!-- Tuesday Button -->
+        <Button
+            android:id="@+id/btnTuesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tuesday"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- Wednesday Button -->
+        <Button
+            android:id="@+id/btnWednesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wednesday"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- Thursday Button -->
+        <Button
+            android:id="@+id/btnThursday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thursday"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- Friday Button -->
+        <Button
+            android:id="@+id/btnFriday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Friday"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- Saturday Button -->
+        <Button
+            android:id="@+id/btnSaturday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saturday"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- Sunday Button -->
+        <Button
+            android:id="@+id/btnSunday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sunday"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- Back to Home Button -->
+        <Button
+            android:id="@+id/btnBackToHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back to Home"
+            android:textColor="@color/black"
+            android:background="@color/teal_200"
+            android:layout_marginTop="20dp"/> <!-- Add margin-top to give space between the last day button and the back button -->
+
+    </LinearLayout>
+</RelativeLayout>
