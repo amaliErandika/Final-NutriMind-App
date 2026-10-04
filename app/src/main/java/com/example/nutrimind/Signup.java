@@ -113,7 +113,6 @@ public class Signup extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("username", username);
                     editor.putString("email", email);
-                    editor.putString("password", edPassword.getText().toString().trim()); // Storing password in SharedPreferences
                     editor.apply();
 
                     Log.d("FirestoreSuccess", "User saved successfully!");

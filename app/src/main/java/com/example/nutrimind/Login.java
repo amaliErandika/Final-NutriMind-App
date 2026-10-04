@@ -9,16 +9,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 
 public class Login extends AppCompatActivity {
 
     // Object creation for UI elements
-    EditText edUsername, edPassword;
+    EditText edEmail, edPassword;
     Button btnLogin;
     TextView tViewSignUp;
     ImageView imgFacebook, imgGoogle, imgInstagram;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +29,8 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Initialize UI Elements
-        edUsername = findViewById(R.id.editTextLoginUserName);
+        mAuth = FirebaseAuth.getInstance();
+        edEmail = findViewById(R.id.editTextLoginEmail);
         edPassword = findViewById(R.id.editTextLoginPassword);
         btnLogin = findViewById(R.id.buttonLogin);
         tViewSignUp = findViewById(R.id.textViewSignUp);
@@ -54,29 +58,36 @@ public class Login extends AppCompatActivity {
 
         // Set OnClickListener for the Login button
         btnLogin.setOnClickListener(v -> {
-            String username = edUsername.getText().toString().trim();
+            String email = edEmail.getText().toString().trim();
             String password = edPassword.getText().toString().trim();
 
-            // Validate inputs
-            if (username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(getApplicationContext(), "Please enter both username and password", Toast.LENGTH_SHORT).show();
-            } else {
-                // Retrieve saved username and password from SharedPreferences
-                SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
-                String savedUsername = sharedPreferences.getString("username", "");
-                String savedPassword = sharedPreferences.getString("password", "");
-
-                // Check if entered username and password match saved credentials
-                if (username.equals(savedUsername) && password.equals(savedPassword)) {
-                    // If the credentials match, navigate to the home page
-                    Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Login.this, HomeActivity.class)); // Replace with your HomeActivity
-                    finish(); // Close the login activity
-                } else {
-                    // If the credentials do not match
-                    Toast.makeText(Login.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
-                }
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(Login.this,
+                        "Please enter email and password",
+                        Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, task -> {
+
+                        if (task.isSuccessful()) {
+
+                            Toast.makeText(Login.this,
+                                    "Login Successful",
+                                    Toast.LENGTH_SHORT).show();
+
+                            startActivity(new Intent(Login.this, HomeActivity.class));
+                            finish();
+
+                        } else {
+
+                            Toast.makeText(Login.this,
+                                    "Login failed: " +
+                                            task.getException().getMessage(),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    });
         });
 
         // Set OnClickListener for the Sign Up text view (navigate to Signup page)

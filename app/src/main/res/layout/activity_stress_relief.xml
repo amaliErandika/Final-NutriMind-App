@@ -1,10 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:fitsSystemWindows="true">
 
-
+    <!-- TOP HEADER SEGMENT -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,57 +22,52 @@
             android:text="Hi, User 👋"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/white"/>
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btnHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="History"
+            android:layout_marginEnd="6dp"/>
 
         <ImageView
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:src="@drawable/bot_icon"/>
+            android:src="@drawable/bot_icon"
+            android:contentDescription="Bot Icon"/>
     </LinearLayout>
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="How do you feel today?"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="10dp"/>
-
-
-    <ScrollView
+    <!-- FLEXIBLE CHAT LIST (Expands/contracts smoothly when keyboard pops up) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerChat"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="16dp">
+        android:padding="12dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"/>
 
-        <TextView
-            android:id="@+id/txtAIResponse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"/>
-    </ScrollView>
-
-
-
+    <!-- RESPONSIVE BOTTOM CHAT INPUT BAR CONTAINER -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:background="@drawable/rounded_fd">
-
+        android:layout_margin="12dp"
+        android:padding="6dp"
+        android:background="@drawable/rounded_fd"
+        android:elevation="4dp"> <!-- Adds shadow depth to lift it over background gradients -->
 
         <ImageView
             android:id="@+id/btnPlus"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:src="@drawable/ic_plus"
-            android:padding="4dp"/>
-
+            android:padding="6dp"
+            android:contentDescription="Add Attachments"/>
 
         <EditText
             android:id="@+id/etFeeling"
@@ -78,24 +75,28 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="Type your feelings..."
-            android:textColor="#000"
+            android:textColor="#000000"
             android:textColorHint="#757575"
             android:background="@android:color/transparent"
-            android:padding="10dp"/>
-
+            android:padding="10dp"
+            android:inputType="textShortMessage|textAutoCorrect"
+            android:imeOptions="actionSend"/> <!-- Sets custom soft keyboard enter key behavior -->
 
         <ImageView
             android:id="@+id/btnMic"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:src="@drawable/ic_mic"
-            android:padding="4dp"/>
+            android:padding="6dp"
+            android:contentDescription="Voice Input"/>
+
         <ImageView
             android:id="@+id/btnSendText"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:src="@drawable/ic_send"
-            android:padding="4dp"/>
+            android:padding="6dp"
+            android:contentDescription="Send Message"/>
     </LinearLayout>
 
 </LinearLayout>

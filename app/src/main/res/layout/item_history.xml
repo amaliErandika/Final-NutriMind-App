@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://android.com"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="16dp"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+
+    <ImageView
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/ic_plus"
+        android:layout_marginEnd="16dp"
+        app:tint="@android:color/white"
+        android:contentDescription="Chat icon" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtSessionDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yesterday's Chat"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtSessionPreview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I'm very sad..."
+            android:textColor="#E0E0E0"
+            android:textSize="13sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+    </LinearLayout>
+
+</LinearLayout>
