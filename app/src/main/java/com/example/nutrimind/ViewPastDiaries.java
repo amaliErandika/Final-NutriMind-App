@@ -9,8 +9,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -22,6 +24,8 @@ public class ViewPastDiaries extends AppCompatActivity {
     private DiaryAdapter diaryAdapter;
     private List<DiaryModel> diaryList = new ArrayList<>();
     private FirebaseFirestore db;
+
+    private FirebaseAuth mAuth;
     private Button btnBackToFeelingsDiary;
 
     @Override
@@ -33,6 +37,7 @@ public class ViewPastDiaries extends AppCompatActivity {
         listView = findViewById(R.id.listView);
         btnBackToFeelingsDiary = findViewById(R.id.btnBackToView);
         db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         // Fetch past diary entries from Firestore
         fetchPastDiaries();
@@ -51,27 +56,49 @@ public class ViewPastDiaries extends AppCompatActivity {
 
     // Fetch past diaries from Firestore
     private void fetchPastDiaries() {
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser == null) {
+            Toast.makeText(this, "Please login first.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String userId = currentUser.getUid();
+
         db.collection("diaryEntries")
+                .whereEqualTo("userId", userId)
                 .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        diaryList.clear(); // Clear the list to avoid duplicates
-                        QuerySnapshot querySnapshot = task.getResult();
-                        if (querySnapshot != null && !querySnapshot.isEmpty()) {
-                            for (DocumentSnapshot document : querySnapshot) {
-                                DiaryModel diary = document.toObject(DiaryModel.class);
-                                if (diary != null) {
-                                    diary.setDocumentId(document.getId()); // Store Firestore document ID
-                                    diaryList.add(diary);
-                                }
-                            }
-                            diaryAdapter.notifyDataSetChanged();
-                        } else {
-                            Toast.makeText(ViewPastDiaries.this, "No past diary entries found.", Toast.LENGTH_SHORT).show();
+                .addOnSuccessListener(querySnapshot -> {
+
+                    diaryList.clear();
+
+                    for (DocumentSnapshot document : querySnapshot) {
+                        DiaryModel diary = document.toObject(DiaryModel.class);
+
+                        if (diary != null) {
+                            diary.setDocumentId(document.getId());
+                            diaryList.add(diary);
                         }
-                    } else {
-                        Toast.makeText(ViewPastDiaries.this, "Failed to fetch entries.", Toast.LENGTH_SHORT).show();
                     }
+
+                    diaryAdapter.notifyDataSetChanged();
+
+                    if (diaryList.isEmpty()) {
+                        Toast.makeText(
+                                ViewPastDiaries.this,
+                                "No past diary entries found.",
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+                })
+                .addOnFailureListener(e -> {
+
+                    Toast.makeText(
+                            ViewPastDiaries.this,
+                            "Failed to fetch entries: " + e.getMessage(),
+                            Toast.LENGTH_LONG
+                    ).show();
                 });
     }
 

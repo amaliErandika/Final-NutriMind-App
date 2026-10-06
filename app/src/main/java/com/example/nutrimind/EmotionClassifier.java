@@ -156,14 +156,14 @@ public class EmotionClassifier {
             case "Happy":
                 return "😊";
 
+            case "Neutral":
+                return "😐";
+
             case "Sad":
                 return "😢";
 
             case "Surprise":
                 return "😲";
-
-            case "Neutral":
-                return "😐";
 
             default:
                 return "🙂";

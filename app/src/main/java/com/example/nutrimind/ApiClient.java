@@ -2,13 +2,20 @@ package com.example.nutrimind;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
 public class ApiClient {
-    private static final String BASE_URL = "http://172.26.222.131:8000/";
+    //private static final String BASE_URL = "https://hasandi-nutrimind-mood-api.hf.space/";
+    private static final String BASE_URL = "http://13.233.73.252/";
+
+    private static Retrofit retrofit;
 
     public static Retrofit getClient() {
-        return new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        if (retrofit == null) {
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return retrofit;
     }
 }
