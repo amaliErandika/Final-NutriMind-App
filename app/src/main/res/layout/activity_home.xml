@@ -279,18 +279,6 @@
                 android:layout_marginTop="6dp"
                 android:gravity="center"/>
 
-            <TextView
-                android:id="@+id/txtMoreInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="More information"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:layout_marginTop="6dp"
-                android:clickable="true"
-                android:focusable="true"/>
-
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
